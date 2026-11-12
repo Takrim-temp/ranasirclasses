@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rana Sir Classes - Best NEET, IIT JEE, WBJEE Coaching in Kolkata</title>
+    <style>
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            /* Colors */
+            --brand-primary: #0A1E3C; /* Deep Navy Blue */
+            --brand-primary-light: #1A2F4F;
+            --brand-accent: #F5A623; /* Energetic Orange / Amber */
+            --brand-accent-hover: #E09515;
+            --surface-primary: #FFFFFF;
+            --surface-secondary: #F4F6F9; /* Cool Off-White / Light Slate */
+            --surface-tertiary: #E9EDF2;
+            --text-primary: #0A1E3C; /* Charcoal / Deep Navy */
+            --text-secondary: #5A6A7E; /* Muted Slate Gray */
+            --text-light: #FFFFFF;
+            --border-light: #DDE3EA;
+
+            /* Typography */
+            --font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --font-weight-extrabold: 800;
+            --font-weight-bold: 700;
+            --font-weight-semibold: 600;
+            --font-weight-regular: 400;
+
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 5rem;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-pill: 50px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(10, 30, 60, 0.08);
+            --shadow-md: 0 4px 12px rgba(10, 30, 60, 0.1);
+            --shadow-lg: 0 8px 24px rgba(10, 30, 60, 0.12);
+            --shadow-xl: 0 16px 40px rgba(10, 30, 60, 0.15);
+
+            /* Layout */
+            --max-width: 1200px;
+            --header-height: 72px;
+        }
+
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-weight: var(--font-weight-regular);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--surface-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .text-accent {
+            color: var(--brand-accent);
+        }
+
+        .font-bold {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .font-extrabold {
+            font-weight: var(--font-weight-extrabold);
+        }
+
+        .section-padding {
+            padding: var(--space-3xl) 0;
+        }
+
+        .section-padding-lg {
+            padding: var(--space-4xl) 0;
+        }
+
+        .bg-secondary {
+            background-color: var(--surface-secondary);
+        }
+
+        .bg-primary {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+        }
+
+        .bg-primary .text-secondary {
+            color: #B0C4DE;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: var(--font-weight-bold);
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); }
+        h2 { font-size: 2rem; font-weight: var(--font-weight-extrabold); }
+        h3 { font-size: 1.5rem; font-weight: var(--font-weight-bold); }
+        h4 { font-size: 1.25rem; font-weight: var(--font-weight-semibold); }
+        h5 { font-size: 1.125rem; font-weight: var(--font-weight-semibold); }
+        h6 { font-size: 1rem; font-weight: var(--font-weight-semibold); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.25rem; }
+        }
+
+        /* ===== TOP UTILITY BAR ===== */
+        .top-utility-bar {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+            padding: var(--space-sm) 0;
+            font-size: 0.8125rem;
+            font-weight: var(--font-weight-regular);
+        }
+
+        .top-utility-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .top-utility-bar a {
+            color: var(--text-light);
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .top-utility-bar a:hover {
+            opacity: 1;
+        }
+
+        .utility-links {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .utility-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .btn-utility-cta {
+            background-color: var(--brand-accent);
+            color: var(--brand-primary) !important;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-weight: var(--font-weight-semibold);
+            font-size: 0.8125rem;
+            opacity: 1 !important;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-utility-cta:hover {
+            background-color: var(--brand-accent-hover);
+        }
+
+        /* ===== HEADER / MEGA MENU ===== */
+        .main-header {
+            background-color: var(--surface-primary);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-extrabold);
+            color: var(--brand-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo span {
+            color: var(--brand-accent);
+        }
+
+        .nav-main {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+        }
+
+        .nav-main > li > a {
+            font-weight: var(--font-weight-semibold);
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            padding: var(--space-sm) 0;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-main > li > a:hover {
+            color: var(--brand-accent);
+        }
+
+        .nav-main > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--brand-accent);
+            transition: width 0.2s ease;
+        }
+
+        .nav-main > li > a:hover::after {
+            width: 100%;
+        }
+
+        /* Mega dropdown placeholder */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--surface-primary);
+            box-shadow: var(--shadow-lg);
+            border-top: 2px solid var(--brand-accent);
+            padding: var(--space-xl);
+            display: none;
+            z-index: 999;
+        }
+
+        .mega-menu.active {
+            display: block;
+        }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: var(--space-sm);
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--brand-primary);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 991px) {
+            .nav-main {
+                display: none;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                right: 0;
+                background: var(--surface-primary);
+                flex-direction: column;
+                padding: var(--space-lg);
+                box-shadow: var(--shadow-lg);
+                gap: var(--space-md);
+                border-top: 1px solid var(--border-light);
+            }
+
+            .nav-main.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 0.75rem 1.75rem;
+            font-family: var(--font-family);
+            font-size: 0.9375rem;
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--radius-pill);
+            transition: all 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 2px solid transparent;
+            line-height: 1.4;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-accent);
+            color: var(--brand-primary);
+            border-color: var(--brand-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-accent-hover);
+            border-color: var(--brand-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--brand-primary);
+            border-color: var(--brand-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-light {
+            background-color: transparent;
+            color: var(--text-light);
+            border-color: var(--text-light);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--text-light);
+            color: var(--brand-primary);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--brand-primary);
+            border-color: var(--border-light);
+            font-weight: var(--font-weight-semibold);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--brand-primary);
+            background-color: var(--surface-secondary);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.8125rem;
+        }
+
+        .btn-lg {
+            padding: 1rem 2.5rem;
+            font-size: 1.0625rem;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #122A4A 100%);
+            color: var(--text-light);
+            padding: var(--space-4xl) 0 var(--space-3xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(245, 166, 35, 0.15);
+            color: var(--brand-accent);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-pill);
+            font-size: 0.8125rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-lg);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            font-size: 2.75rem;
+            max-width: 900px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero h1 span {
+            color: var(--brand-accent);
+        }
+
+        .hero-subheadline {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-md);
+            color: var(--text-light);
+        }
+
+        .hero p {
+            font-size: 1.0625rem;
+            color: #B0C4DE;
+            max-width: 850px;
+            margin-bottom: var(--space-xl);
+            line-height: 1.7;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .trust-badge-item {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .trust-badge-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .trust-badge-item .badge-value {
+            font-size: 1.75rem;
+            font-weight: var(--font-weight-extrabold);
+            color: var(--brand-accent);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .trust-badge-item .badge-label {
+            font-size: 0.8125rem;
+            color: #B0C4DE;
+            margin-top: var(--space-xs);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.75rem; }
+            .hero-subheadline { font-size: 1.125rem; }
+            .trust-badges { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+            .trust-badge-item { padding: var(--space-md); }
+            .trust-badge-item .badge-value { font-size: 1.25rem; }
+        }
+
+        /* ===== "DID YOU KNOW" SECTION ===== */
+        .did-you-know {
+            background-color: var(--surface-secondary);
+            padding: var(--space-2xl) 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .did-you-know .container {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .did-you-know-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background-color: var(--brand-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-extrabold);
+            color: var(--brand-primary);
+        }
+
+        .did-you-know h2 {
+            font-size: 1.125rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .did-you-know blockquote {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: var(--space-sm);
+        }
+
+        .did-you-know cite {
+            font-style: normal;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .did-you-know .container {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            .did-you-know blockquote { font-size: 1.0625rem; }
+        }
+
+        /* ===== SECTION HEADINGS ===== */
+        .section-heading {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .section-heading h2 {
+            margin-bottom: var(--space-sm);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--brand-accent);
+            margin: var(--space-md) auto 0;
+            border-radius: 2px;
+        }
+
+        .section-heading p {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== RESULTS SECTION ===== */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .result-card {
+            background: var(--surface-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .result-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: var(--space-md);
+            color: var(--brand-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .result-card h3 .result-icon {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            background: var(--brand-accent);
+            color: var(--brand-primary);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: var(--font-weight-extrabold);
+        }
+
+        .result-card p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .news-recognition {
+            background: var(--surface-primary);
+            border-left: 4px solid var(--brand-accent);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg) var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .news-recognition h3 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .news-recognition blockquote {
+            font-size: 1.0625rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-choose-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: start;
+        }
+
+        .why-choose-text p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            font-size: 0.9375rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+            padding: var(--space-sm) 0;
+        }
+
+        .benefit-item::before {
+            content: '✓';
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background-color: var(--brand-accent);
+            color: var(--brand-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-extrabold);
+            margin-top: 1px;
+        }
+
+        .why-choose-image-placeholder {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #1A2F4F 100%);
+            border-radius: var(--radius-lg);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl);
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-choose-image-placeholder::before {
+            content: '18+';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12rem;
+            font-weight: var(--font-weight-extrabold);
+            color: rgba(255, 255, 255, 0.04);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .why-choose-image-placeholder h3 {
+            color: var(--brand-accent);
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-choose-image-placeholder p {
+            color: #B0C4DE;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 991px) {
+            .why-choose-content {
+                grid-template-columns: 1fr;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== COURSES SECTION ===== */
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+            overflow-x: auto;
+            padding-bottom: var(--space-sm);
+        }
+
+        .courses-tab {
+            padding: 0.625rem 1.75rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.9375rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-secondary);
+            border: 2px solid var(--border-light);
+            background: var(--surface-primary);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .courses-tab:hover {
+            border-color: var(--brand-primary);
+            color: var(--brand-primary);
+        }
+
+        .courses-tab.active {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+            border-color: var(--brand-primary);
+        }
+
+        .courses-tab.active:hover {
+            background-color: var(--brand-primary-light);
+        }
+
+        .course-group {
+            display: none;
+        }
+
+        .course-group.active {
+            display: block;
+        }
+
+        .course-group-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .course-group-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--brand-primary);
+        }
+
+        .course-group-header p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            max-width: 800px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .course-card {
+            background: var(--surface-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .course-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: var(--brand-accent);
+        }
+
+        .course-card-badge {
+            display: inline-flex;
+            align-self: flex-start;
+            background-color: var(--surface-secondary);
+            color: var(--brand-primary);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-pill);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--border-light);
+        }
+
+        .course-card-badge.highlight {
+            background-color: rgba(245, 166, 35, 0.12);
+            color: var(--brand-primary);
+            border-color: rgba(245, 166, 35, 0.3);
+        }
+
+        .course-card h4 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .course-card .course-desc {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-lg);
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .course-card-footer {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CONTACT & LOCATION ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .contact-card {
+            background: var(--surface-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-md);
+            color: var(--brand-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .contact-card address {
+            font-style: normal;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-card .cta-text {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .contact-card .phone-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .contact-card .phone-numbers a {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--brand-primary);
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .contact-card .phone-numbers a:hover {
+            color: var(--brand-accent);
+        }
+
+        .timing-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xs) var(--space-lg);
+        }
+
+        .timing-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-xs) 0;
+            border-bottom: 1px dashed var(--border-light);
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .timing-list li .day {
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .timing-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-wrapper {
+            text-align: center;
+        }
+
+        .testimonial-stat {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--surface-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl) var(--space-3xl);
+            box-shadow: var(--shadow-md);
+            margin-top: var(--space-lg);
+        }
+
+        .testimonial-stat .stat-number {
+            font-size: 3.5rem;
+            font-weight: var(--font-weight-extrabold);
+            color: var(--brand-primary);
+            line-height: 1;
+        }
+
+        .testimonial-stat .stat-stars {
+            color: var(--brand-accent);
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin: var(--space-sm) 0;
+        }
+
+        .testimonial-stat .stat-label {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .testimonial-stat .stat-count {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: var(--space-xs);
+        }
+
+        /* ===== SEO / DESCRIPTIVE CONTENT ===== */
+        .seo-content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .seo-card {
+            background: var(--surface-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .seo-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .seo-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+            color: var(--brand-primary);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .seo-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .seo-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FACULTY SECTION ===== */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .faculty-card {
+            background: var(--surface-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .faculty-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+            color: var(--brand-primary);
+        }
+
+        .faculty-card .faculty-highlight {
+            font-size: 0.9375rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--brand-accent);
+            margin-bottom: var(--space-sm);
+            display: block;
+            padding-left: var(--space-md);
+            border-left: 3px solid var(--brand-accent);
+        }
+
+        .faculty-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .main-footer {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+            padding: var(--space-3xl) 0 var(--space-xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-brand h3 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-brand h3 span {
+            color: var(--brand-accent);
+        }
+
+        .footer-brand p {
+            color: #B0C4DE;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            max-width: 400px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: var(--space-md);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .footer-col ul li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-col ul li a {
+            color: #B0C4DE;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--brand-accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            font-size: 0.8125rem;
+            color: #B0C4DE;
+        }
+
+        .footer-bottom a {
+            color: var(--brand-accent);
+        }
+
+        .footer-cta {
+            background-color: rgba(245, 166, 35, 0.1);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl);
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-cta p {
+            font-size: 1.125rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-light);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-cta a {
+            color: var(--brand-accent);
+            font-weight: var(--font-weight-bold);
+            font-size: 1.25rem;
+        }
+
+        .footer-cta a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+        }
+
+        /* ===== RESPONSIVE ADJUSTMENTS ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            .section-padding {
+                padding: var(--space-2xl) 0;
+            }
+            .section-padding-lg {
+                padding: var(--space-3xl) 0;
+            }
+            .hero {
+                padding: var(--space-3xl) 0 var(--space-2xl);
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero-cta-group .btn {
+                width: 100%;
+            }
+            .trust-badges {
+                grid-template-columns: 1fr 1fr;
+            }
+            .testimonial-stat {
+                padding: var(--space-xl) var(--space-lg);
+            }
+            .testimonial-stat .stat-number {
+                font-size: 2.5rem;
+            }
+            .top-utility-bar .container {
+                justify-content: center;
+            }
+            .utility-links {
+                gap: var(--space-md);
+            }
+        }
+
+        /* ===== SCROLL REVEAL ANIMATION ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--brand-accent);
+            outline-offset: 2px;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            .top-utility-bar,
+            .main-header,
+            .hero-cta-group,
+            .btn,
+            .courses-tabs,
+            .footer-cta {
+                display: none !important;
+            }
+            body {
+                color: #000;
+                background: #fff;
+            }
+            .bg-primary {
+                background: #fff;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOP UTILITY BAR ===== -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-links">
+                <a href="#courses">Programs</a>
+                <a href="#contact">Centers</a>
+                <a href="#results">Results</a>
+            </div>
+            <div class="utility-links">
+                <a href="tel:9932325439">📞 9932325439</a>
+                <a href="tel:8250815651">📞 8250815651</a>
+                <a href="#contact" class="btn-utility-cta">Enroll Free</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN HEADER / NAVIGATION ===== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Rana Sir <span>Classes</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-main" id="navMain">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#faculty">Faculty</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-badge">18+ Years of Academic Excellence</div>
+            <h1>Rana Sir Classes - Best NEET, IIT JEE, WBJEE, JEE Main, JEE Advanced, Foundation Coaching in <span>Kolkata</span>, West Bengal, India</h1>
+
+            <p>Rana Sir Classes is one of the Most Recommended Trusted NEET, IIT JEE (JEE Main & JEE Advanced), WBJEE Coaching in Kolkata, West Bengal, India. Being 18+ Years of Top Ranked Best NEET, IIT JEE, WBJEE Coaching Institute in Kolkata our Student Scored 99 Percentile & have 99% Positive Feedback. We Provide NEET & JEE Coaching by more than 18 Years of Highly Experienced Best Physics Teacher in Kolkata for NEET & IIT JEE, Best Chemistry Teacher in Kolkata for NEET & IIT JEE, Best Maths Teacher in Kolkata for IIT JEE, Best Biology Teacher for NEET in Kolkata.</p>
+
+            <div class="hero-subheadline">Welcome to Rana Sir Classes</div>
+            <p style="margin-bottom: var(--space-xl);"><strong>Get All India Top Rank in NEET & JEE by our Award Winning Highly Experienced Faculty</strong></p>
+
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn btn-primary btn-lg">Enroll Free</a>
+                <a href="#courses" class="btn btn-outline-light btn-lg">Explore Courses</a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="trust-badge-item">
+                    <span class="badge-value">Highest Success Rate*</span>
+                    <span class="badge-label">Proven Track Record</span>
+                </div>
+                <div class="trust-badge-item">
+                    <span class="badge-value">63,000+ Selections*</span>
+                    <span class="badge-label">Most Trusted</span>
+                </div>
+                <div class="trust-badge-item">
+                    <span class="badge-value">99% Positive Feedback*</span>
+                    <span class="badge-label">Student Satisfaction</span>
+                </div>
+                <div class="trust-badge-item">
+                    <span class="badge-value">99%ile Score*</span>
+                    <span class="badge-label">in NEET & JEE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== "DID YOU KNOW" SECTION ===== -->
+    <section class="did-you-know">
+        <div class="container">
+            <div class="did-you-know-icon">?</div>
+            <div>
+                <h2>Did you know?</h2>
+                <blockquote>" Rana Sir Classes is Recognised as Eastern India's Most Trusted Coaching Institute* for Best Results & Highest Success Rate "</blockquote>
+                <cite>As per - The Indian Express News</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS SECTION ===== -->
+    <section class="section-padding" id="results">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Results Speak for Themselves</h2>
+                <p>Verified achievements from our students across NEET and JEE examinations.</p>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3><span class="result-icon">📋</span> NEET Results - 2026</h3>
+                    <p>All the Results are 100% Verified by Official Result and Team Rana Sir Classes with Video Testimonials.</p>
+                </div>
+                <div class="result-card">
+                    <h3><span class="result-icon">📋</span> JEE Results - 2026</h3>
+                    <p>All the Results are 100% Verified by Official Result and Team Rana Sir Classes with Video Testimonials.</p>
+                </div>
+            </div>
+
+            <div class="news-recognition">
+                <h3>Recognition in News Media</h3>
+                <blockquote>According to Multiple News- " Rana Sir Classes is the Most Trusted, Result oriented & Recommended NEET, IIT JEE & WBJEE Coaching Institute "</blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="section-padding bg-secondary" id="why-us">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why choose Rana Sir Classes?</h2>
+                <p>Rana Sir Classes is an Affordable & Trusted NEET & JEE Coaching in Kolkata by 63,000+ Students & Parents Feedback.</p>
+            </div>
+
+            <div class="why-choose-content">
+                <div class="why-choose-text">
+                    <p>Rana Sir Classes Provide Coaching for the Medical Entrance Exam (NEET, AIIMS), Engineering- Joint Entrance Exam (IIT JEE, IIT, JEE, JEE Main, JEE Advanced, WBJEE), Class 11 & 12, Foundation (Class 8 to 10), Repeater or Dropper and others (CBSE, ICSE, ISC, WB, BITSAT, IISER) both Online & Offline Classes. Our Coaching Institute have more than 18 Years of Experienced Faculty (NEET & JEE Physics Teacher, NEET & JEE Chemistry Teacher, IIT JEE Maths Teacher & NEET Biology Teacher). Facilities includes Small Batches, Regular Mock Test, 1:1 Doubts Clearing Classes, Study Materials, DPPs, Test Series. Apart from Regular NEET Course & JEE Course we also provides Test Series and Crash Courses for NEET & JEE.</p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">Award Winning Experienced Teacher</div>
+                        <div class="benefit-item">99%ile Score in NEET & JEE</div>
+                        <div class="benefit-item">Selections under All India Top 100</div>
+                        <div class="benefit-item">99% Positive Feedback*</div>
+                        <div class="benefit-item">Regular Mock Test for Better Score</div>
+                        <div class="benefit-item">Small Batches & Doubts Clear Class</div>
+                        <div class="benefit-item">Study Materials with Quality Test</div>
+                        <div class="benefit-item">High Qualify Record 18+ Years</div>
+                        <div class="benefit-item">Most Trusted - 63,000+ Selections*</div>
+                        <div class="benefit-item">Available upto 100% Scholarship*</div>
+                    </div>
+                </div>
+
+                <div class="why-choose-image-placeholder">
+                    <h3>18+ Years</h3>
+                    <p>of Academic Excellence</p>
+                    <p style="margin-top: var(--space-md); font-size: 0.9375rem;">Trusted by 63,000+ Students & Parents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COURSES SECTION ===== -->
+    <section class="section-padding" id="courses">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Courses</h2>
+                <p>Online Classes & Classroom Offline Classes</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="courses-tabs">
+                <button class="courses-tab active" data-tab="neet">NEET Courses</button>
+                <button class="courses-tab" data-tab="jee">JEE Courses</button>
+            </div>
+
+            <!-- NEET Courses -->
+            <div class="course-group active" id="tab-neet">
+                <div class="course-group-header">
+                    <h3>NEET Courses</h3>
+                    <p>This include Basic to Advance Preparation of Physics, Chemistry, Biology with Regular Chapter wise Mock Test, Unit wise Mock Test, Question Practice Sets, Full Study Materials, DPPs, Full Syllabus Test Series, Study Planner, Doubts Clearing Class according to your type of course.</p>
+                </div>
+
+                <div class="course-grid">
+                    <div class="course-card">
+                        <span class="course-card-badge highlight">Classroom / Online</span>
+                        <h4>NEET Coaching for Repeater/ Dropper/ Class 12 Passed Student</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Coaching for Repeater/ Dropper/ Class 12 Passed Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge highlight">Classroom / Online</span>
+                        <h4>NEET Coaching for Class 12 Student</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Coaching for Class 12 Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge highlight">Classroom / Online</span>
+                        <h4>NEET Coaching for Class 11 Student</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Coaching for Class 11 Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Foundation</span>
+                        <h4>NEET Coaching for Class 10 Foundation Student</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Coaching for Class 10 Foundation Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Foundation</span>
+                        <h4>NEET Coaching for Class 9 Foundation Student</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Coaching for Class 9 Foundation Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Foundation</span>
+                        <h4>NEET Coaching for Class 8 Foundation Student</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Coaching for Class 8 Foundation Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Crash Course</span>
+                        <h4>NEET Crash Course</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Crash Course</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Test Series</span>
+                        <h4>NEET Test Series</h4>
+                        <p class="course-desc">NEET (Medical, Physics, Chemistry, Biology) Test Series</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JEE Courses -->
+            <div class="course-group" id="tab-jee">
+                <div class="course-group-header">
+                    <h3>IIT JEE (JEE Advanced), JEE Main, WBJEE</h3>
+                    <p>This include Basic to Advance Preparation of Physics, Chemistry, Mathematics with Regular Chapter wise Mock Test, Unit wise Mock Test, Question Practice Sets, Full Study Materials, DPPs, Full Syllabus Test Series, Study Planner, Doubts Clearing Class according to your type of course.</p>
+                </div>
+
+                <div class="course-grid">
+                    <div class="course-card">
+                        <span class="course-card-badge highlight">Classroom / Online</span>
+                        <h4>IIT JEE & WBJEE Coaching for Repeater/ Dropper/ Class 12 Passed Student</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Coaching for Repeater/ Dropper/ Class 12 Passed</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge highlight">Classroom / Online</span>
+                        <h4>IIT JEE & WBJEE Coaching for Class 12 Student</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Coaching for Class 12 Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge highlight">Classroom / Online</span>
+                        <h4>IIT JEE & WBJEE Coaching for Class 11 Student</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Coaching for Class 11 Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Foundation</span>
+                        <h4>IIT JEE & WBJEE Coaching for Class 10 Foundation Student</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Coaching for Class 10 Foundation Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Foundation</span>
+                        <h4>IIT JEE & WBJEE Coaching for Class 9 Foundation Student</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Coaching for Class 9 Foundation Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Foundation</span>
+                        <h4>IIT JEE & WBJEE Coaching for Class 8 Foundation Student</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Coaching for Class 8 Foundation Student</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Crash Course</span>
+                        <h4>IIT JEE & WBJEE Crash Course</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Crash Course</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-card-badge">Test Series</span>
+                        <h4>IIT JEE & WBJEE Test Series</h4>
+                        <p class="course-desc">JEE (IIT JEE, JEE Main, JEE Advanced, WBJEE, Physics, Chemistry, Maths) Test Series</p>
+                        <div class="course-card-footer">
+                            <a href="#contact" class="btn btn-ghost">View Details</a>
+                            <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT & LOCATION ===== -->
+    <section class="section-padding bg-secondary" id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Visit Us</h2>
+                <p>Our Kolkata Address & Opening Timings</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📍 Our Kolkata Address</h3>
+                    <address>
+                        6, Ballygunge Terrace, Golpark<br>
+                        (near Anjali Jewellers, beside Indian Overseas Bank)<br>
+                        Kolkata- 700029, West Bengal, India
+                    </address>
+                    <p class="cta-text">To get an appointment for admission or visit must Call / WhatsApp:</p>
+                    <div class="phone-numbers">
+                        <a href="tel:9932325439">📞 9932325439</a>
+                        <a href="tel:8250815651">📞 8250815651</a>
+                    </div>
+                    <div style="margin-top: var(--space-lg);">
+                        <a href="#contact" class="btn btn-primary">Enroll Free</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>🕐 Our Opening & Closing Timing</h3>
+                    <ul class="timing-list">
+                        <li><span class="day">Monday</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span class="day">Tuesday</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span class="day">Wednesday</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span class="day">Thursday</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span class="day">Friday</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span class="day">Saturday</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span class="day">Sunday</span><span>7:00 AM – 10:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section-padding" id="testimonials">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Testimonials</h2>
+                <p>Trusted by 63,000+ Students and Parents*</p>
+            </div>
+
+            <div class="testimonials-wrapper">
+                <div class="testimonial-stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-stars">★★★★★</span>
+                    <span class="stat-label">63,539 Reviews*</span>
+                    <span class="stat-count">Student & Parent Feedback</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEO / DESCRIPTIVE CONTENT ===== -->
+    <section class="section-padding bg-secondary">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why Students Choose Us</h2>
+                <p>Ranked among the top coaching institutes in Kolkata, West Bengal & India.</p>
+            </div>
+
+            <div class="seo-content-grid">
+                <div class="seo-card">
+                    <h3>Best NEET Coaching in Kolkata with Fees Structure</h3>
+                    <p>Rana Sir Classes offering top-tier Best NEET Coaching in Kolkata for medical aspirants. Being ranked among Top 10 NEET Coaching Centres in Kolkata we provide highly expert faculty, comprehensive study material, and regular mock tests to ensure thorough NEET Preparation. With a focus on conceptual clarity in Physics, Chemistry, and Biology, we offer structured NEET Courses and personalised attention. Trusted by 63,000+ students feedback Rana Sir Classes is Ranked 1 among Top 5 NEET Coaching Institutes in Kolkata. We offer various NEET Coaching Courses and NEET Coaching Fees starting from 40,000/- also provides up to 100% Discount through Scholarship Test.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best IIT JEE Coaching in Kolkata with Fees Structure</h3>
+                    <p>Rana Sir Classes is a Renowned & Best JEE Coaching in Kolkata for it's high success rates and highly expert faculty. We offering well structured JEE Coaching programs with a focus on Physics, Chemistry, and Mathematics. Along with the JEE Course we provide comprehensive study material, regular tests, and personalised attention to help students master concepts and excel in the IIT JEE exam. Based on 63,000+ Students feedback, proven track records Rana Sir Classes is the Ranked 1 among Top IIT JEE Coaching Institutes in Kolkata. We ensure an affordable IIT JEE Coaching Fees starting from 45,000/- and also up to 100% Discount based on Scholarship Test makes us a premier destination for IIT JEE Preparation.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best NEET Coaching in West Bengal with Fees Structure</h3>
+                    <p>West Bengal is state for several reputed NEET coaching institutes, offering excellent NEET preparation for aspiring medical students. Rana Sir Classes being a Leading & Best NEET Coaching Centre in West Bengal provide expert faculty, well designed study materials, and regular mock tests to ensure good score in Physics, Chemistry, and Biology. With a focus on building strong conceptual foundations and offering flexible small batch options, we helped many students achieve top ranks in NEET, making us Ranked 1 among Top 10 Best NEET Coaching in West Bengal in an affordable fees structure starting from 42,000/-.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best IIT JEE Coaching in West Bengal with Fees Structure</h3>
+                    <p>Rana Sir Classes offering expert guidance to students aspiring to crack the prestigious IIT JEE Entrance Exam (JEE Main & JEE Advanced). Being a Leading & Best IIT JEE Coaching in West Bengal we provide updated study material, highly experienced JEE faculty, and regular chapter wise mock tests to ensure rigorous JEE preparation. Rana Sir Classes is a highly recommended IIT JEE Coaching for average students & Best one among Top 10 Best IIT JEE Coaching in West Bengal with affordable fees of 45,000/-.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best NEET Coaching in India</h3>
+                    <p>Rana Sir Classes is Most Recommended & thousand plus results produced Best Coaching for NEET in India. Our Moto is to provide the affordable NEET Coaching in small batches and individual attentions so that your NEET Preparation become good to achieve a good All India Rank in NEET. From our Previous Results many students Ranked 99 Percentile Score and 715 Marks in NEET. Many students Ranked under Top 100 and now doing MBBS in AIIMS and Government Medical Colleges.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best IIT JEE Coaching in India</h3>
+                    <p>From a huge success rate and 99% Positive Feedback from Students & 99 Percentile Score in IIT JEE (both JEE Main & JEE Advanced) Rana Sir Classes is the Best JEE Coaching in India for IIT Preparation. Being a Top Rated Best IIT Coaching in India we always focus on students quality JEE Preparation so that a student can get a good score in his / her IIT JEE Exam.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best WBJEE Coaching in Kolkata</h3>
+                    <p>If you a WBJEE Aspirant from Kolkata, West Bengal and looking for a Best WBJEE Coaching Centre in Kolkata in Offline Mode then Rana Sir Classes is Best one. Being a Bengali Medium students some times students become feel less but our specially dedicated WBJEE Coaching Faculty is here to achieve your dream. Many Students have successfully Ranked under 20 in WBJEE after 1 years of WBJEE Preparation.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best Online Coaching for WBJEE</h3>
+                    <p>Apart from WBJEE Offline Coaching Centre in Kolkata Rana Sir Classes also offer Live Online WBJEE Coaching. From that WBJEE Online Classes we ensure quality guidance in small batches so that your preparation should be well even in online mode.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best Online Coaching for NEET</h3>
+                    <p>For NEET Preparation, several Online NEET Coaching platforms offer excellent resources and guidance. Rana Sir Classes is also highly regarded as Best NEET Online Coaching for it's structured NEET Courses and affordable Online NEET Coaching Fees starting from 10,000/-. With flexible learning schedules and user friendly interfaces, these Live NEET Online Classes make NEET preparation accessible and convenient for students across the country, especially those who balancing Coaching & School at the same time.</p>
+                </div>
+
+                <div class="seo-card">
+                    <h3>Best Online Coaching for IIT JEE</h3>
+                    <p>For IIT JEE Online Preparation, we provides excellent resources and guidance with live interactive Online JEE Classes, recorded sessions, and personalised mentoring in small batches. With flexible schedules and accessible learning, Rana Sir Classes being Best Online Coaching for IIT allow students to study at their own place while receiving expert guidance, making them ideal choices for IIT JEE aspirants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FACULTY SECTION ===== -->
+    <section class="section-padding" id="faculty">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Expert Faculty</h2>
+                <p>Learn from the Best Teachers in Kolkata for NEET & IIT JEE</p>
+            </div>
+
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <h3>Best Biology Teacher for NEET in Kolkata</h3>
+                    <span class="faculty-highlight">TH ma'am at Rana Sir Classes is the Best Biology Teacher for NEET in Kolkata.</span>
+                    <p>In Kolkata, one of the Best Biology Teacher for NEET Preparation is BH sir and Dr. AD mam at Rana Sir Classes. AD mam known for her in-depth knowledge, engaging teaching style, and ability to simplify complex topics. She has consistently helped students achieve top ranks in NEET Biology. BH sir approach focuses on conceptual clarity on high yield topics, and regular practice, ensuring students are well prepared for the exam. In simply they are the Best Biology Teacher in Kolkata for NEET.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Best Chemistry Teacher for NEET in Kolkata</h3>
+                    <span class="faculty-highlight">AB ma'am at Rana Sir Classes is the Best Chemistry Teacher for NEET in Kolkata.</span>
+                    <p>One of the Best Chemistry Teachers for NEET Preparation in Kolkata are Dr. ED sir and AB ma'am at Rana Sir Classes. AB sir renowned for his deep understanding of the subject and ability to simplify complex concepts, he has helped countless students secure top ranks in NEET Chemistry. His teaching style emphasises conceptual clarity, regular practice, and solving previous year's questions, making him a Top Rated & Best Chemistry Teacher in Kolkata for NEET. Those Chemistry Teacher are highly specialised in Organic, Inorganic, and Physical Chemistry.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Best Chemistry Teacher for IIT JEE in Kolkata</h3>
+                    <span class="faculty-highlight">BD ma'am at Rana Sir Classes is the Best Chemistry Teacher in Kolkata for IIT JEE.</span>
+                    <p>Dr. PS sir known for his deep subject knowledge, systematic approach, and engaging teaching style, he helps students build a strong foundation in Organic, Inorganic, and Physical Chemistry. They emphasis on conceptual clarity, problem solving techniques, and regular practice and those are most helpful among IIT JEE aspirants.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Best Physics Teacher in Kolkata for IIT JEE</h3>
+                    <span class="faculty-highlight">TB sir at Rana Sir Classes is the Best Physics Teacher for IIT JEE in Kolkata.</span>
+                    <p>Who is known for his exceptional ability to explain complex Physics concepts with clarity and precision. SH sir has helped countless students achieve top ranks in IIT JEE. Apart from another Physics Teacher Dr. TB sir is also very good and students friendly and makes physics more fun to learn with lots of numeric type question practices. From those Physics Teacher in Kolkata many students achieved 99 percentile score in JEE Physics.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Best Physics Teacher for NEET in Kolkata</h3>
+                    <span class="faculty-highlight">SH sir at Rana Sir Classes is the Best Physics Teacher in Kolkata for NEET.</span>
+                    <p>Both SH sir and Dr. TC sir known for his exceptional ability to explain complex Physics concepts in a simple and relatable manner. SH sir has earned a reputation for helping students score high in NEET. Out of 160 marks many students scored 155+ marks in NEET Physics Exam.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Best Maths Teacher in Kolkata for IIT JEE</h3>
+                    <span class="faculty-highlight">PB sir at Rana Sir Classes is the Best Maths Teacher for IIT JEE in Kolkata.</span>
+                    <p>He is known for his clear and methodical teaching style. PB sir simplifies complex mathematical concepts, makes easily understandable for IIT JEE aspirants specially JEE Advanced. Apart from PB sir another Maths Teacher GP sir both renowned for their expertise in Algebra, Calculus, and Coordinate Geometry. These teachers are highly respected for their consistent track record of producing top IIT JEE ranks across the country.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER CTA ===== -->
+    <div class="container">
+        <div class="footer-cta">
+            <p>Ready to start your journey to the top?</p>
+            <a href="tel:9932325439">Call / WhatsApp to - 9932325439 / 8250815651</a>
+        </div>
+    </div>
+
+    <!-- ===== MAIN FOOTER ===== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Rana Sir <span>Classes</span></h3>
+                    <p>One of the Most Recommended Trusted NEET, IIT JEE (JEE Main & JEE Advanced), WBJEE Coaching in Kolkata, West Bengal, India. 18+ Years of Top Ranked Best NEET, IIT JEE, WBJEE Coaching Institute in Kolkata.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#results">Results</a></li>
+                        <li><a href="#why-us">Why Choose Us</a></li>
+                        <li><a href="#faculty">Faculty</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:9932325439">📞 9932325439</a></li>
+                        <li><a href="tel:8250815651">📞 8250815651</a></li>
+                        <li><a href="#contact">6, Ballygunge Terrace, Golpark, Kolkata - 700029</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rana Sir Classes. All rights reserved.</p>
+                <p>Best NEET, IIT JEE, WBJEE Coaching in Kolkata, West Bengal, India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== MOBILE NAV TOGGLE =====
+        const navToggle = document.getElementById('navToggle');
+        const navMain = document.getElementById('navMain');
+
+        navToggle.addEventListener('click', () => {
+            navMain.classList.toggle('active');
+        });
+
+        // Close mobile nav on link click
+        navMain.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMain.classList.remove('active');
+            });
+        });
+
+        // ===== COURSES TABS =====
+        const tabs = document.querySelectorAll('.courses-tab');
+        const courseGroups = {
+            neet: document.getElementById('tab-neet'),
+            jee: document.getElementById('tab-jee')
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active to clicked tab
+                tab.classList.add('active');
+                // Hide all groups
+                Object.values(courseGroups).forEach(group => group.classList.remove('active'));
+                // Show target group
+                const target = tab.dataset.tab;
+                if (courseGroups[target]) {
+                    courseGroups[target].classList.add('active');
+                }
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== SMOOTH SCROLL OFFSET FOR STICKY HEADER =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.main-header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
